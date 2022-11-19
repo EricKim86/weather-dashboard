@@ -17,6 +17,12 @@ ul {
     padding: 2px;
 }
 
+/* navigation bar */
+.navbar-custom {
+    padding: 20px 0 20px 0;
+}
+
+
 /* search results */
 .city-search {
     margin-top: 10px;
