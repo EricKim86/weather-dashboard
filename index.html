@@ -9,86 +9,90 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
         </div>
     </nav>
-    <section class="container row d-flex justify-content-center">
+    <section class="container-fluid row d-flex justify-content-center">
         <aside class="col-lg-3">
             <form>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Search for a City:</label>
-                  <input type="email" class="form-control"aria-describedby="San Diego">
+                  <input type="text" class="form-control"aria-describedby="San Diego">
                 </div>
-                <button type="search" class="btn btn-primary">Search</button>
+                <button type="search" class="btn btn-primary search">Search</button>
               </form>
+        <hr>
         </aside>
-        <section class="main-container column col-lg-9">
+        <section class="main-container column col-lg-9" >
             <section class="card">
                 <div style="width: 18rem;">
-                <div class="card-body">
-                    <p class="card-text">Atlanta (date)</p>
-                    <p class="card-text">Temp:</p>
-                    <p class="card-text">Wind:</p>
-                    <p class="card-text">Humidity:</p>
+                <div class="card-main">
+                  <div class = "main-city"></div>
+                  <div class = "main-temp"></div>
+                  <div class = "main-wind"></div>
+                  <div class = "main-humidity"></div>          
                 </div>
-                </div>
+                </div> 
             </section> 
             <p>5-Day Forecast:</p>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col-lg-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Date:</h5>
-                        <p class="card-text">Temp:</p>
-                        <p class="card-text">Wind:</p>
-                        <p class="card-text">Humidity:</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Date:</h5>
-                        <p class="card-text">Temp:</p>
-                        <p class="card-text">Wind:</p>
-                        <p class="card-text">Humidity:</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-2">
-                  <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Date:</h5>
-                        <p class="card-text">Temp:</p>
-                        <p class="card-text">Wind:</p>
-                        <p class="card-text">Humidity:</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-2">
+            <section class="container-fluid">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <div class="col-lg-2">
                     <div class="card h-100">
                       <div class="card-body">
-                        <h5 class="card-title">Date:</h5>
-                        <p class="card-text">Temp:</p>
-                        <p class="card-text">Wind:</p>
-                        <p class="card-text">Humidity:</p>
+                          <h5 class="card-title">Date:</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Wind:</p>
+                          <p class="card-text">Humidity:</p>
                       </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
+                  </div>
+                  <div class="col-lg-2">
                     <div class="card h-100">
                       <div class="card-body">
-                        <h5 class="card-title">Date:</h5>
-                        <p class="card-text">Temp:</p>
-                        <p class="card-text">Wind:</p>
-                        <p class="card-text">Humidity:</p>
+                          <h5 class="card-title">Date:</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Wind:</p>
+                          <p class="card-text">Humidity:</p>
                       </div>
                     </div>
-                </div>
-            </div>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="card h-100">
+                      <div class="card-body">
+                          <h5 class="card-title">Date:</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Wind:</p>
+                          <p class="card-text">Humidity:</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h5 class="card-title">Date:</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Wind:</p>
+                          <p class="card-text">Humidity:</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-2">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h5 class="card-title">Date:</h5>
+                          <p class="card-text">Temp:</p>
+                          <p class="card-text">Wind:</p>
+                          <p class="card-text">Humidity:</p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </section>
         </section> 
     </section>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
