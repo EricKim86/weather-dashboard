@@ -5,7 +5,6 @@ var APIKey = "a34f5a1c0ef356aeb1d2cd623581eea0";
 var searchResults = document.querySelector(".search-results")
 
 //define city and place default city value of "philadelphia"
-
 var city = []
 if (city) {
   city.length === 0;
@@ -46,6 +45,7 @@ var searchDisplay = JSON.parse(localStorage.getItem("cityRecall")) || [];
 //saving and display city searches
 searchDisplay.push(input.value);
 localStorage.setItem("cityRecall", JSON.stringify(searchDisplay));
+input.value = "";
 
 //fetch api
   var url = ("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + APIKey)
@@ -55,7 +55,7 @@ localStorage.setItem("cityRecall", JSON.stringify(searchDisplay));
     return response.json();
   })
   .then(function (data) {
-    // console.log(data);
+    console.log(data);
   
 // primary display - using jquery to target index.html to eliminate the need to create multiple variables
 var listItem = document.createElement("div");
@@ -139,7 +139,6 @@ var listItem = document.createElement("div");
 listItem.textContent = "Humidity: " + data.list[36].main.humidity + "%";
 document.querySelector(".box5D").appendChild(listItem);
 
-
 //date and time using jquery
 var date = dayjs();
 $(".main-date").text(date.format("(MM/D/YYYY)"));
@@ -159,8 +158,6 @@ $(".box4A").text(date4.format("MM/D/YYYY"));
 var date5 = dayjs().add(5,"days");
 $(".box5A").text(date5.format("MM/D/YYYY"));
 
-return;
-  
   })
   }
 }
