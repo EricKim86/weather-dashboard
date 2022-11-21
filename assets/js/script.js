@@ -1,6 +1,8 @@
 var input = document.querySelector(".input")
 var userSearch = document.querySelector(".searchbar")
+var clear = document.querySelector(".clear-search")
 var APIKey = "a34f5a1c0ef356aeb1d2cd623581eea0";
+var searchResults = document.querySelector(".search-results")
 
 //define city and place default city value of "philadelphia"
 
@@ -12,28 +14,40 @@ if (city) {
 
 function weather() {
  
+//populating saved searches for user
+for (var i = 0; i < localStorage.length; i++){
+  var element = document.createElement("li")
+  element.textContent = JSON.parse(localStorage.getItem(localStorage.key(i)))
+  searchResults.appendChild(element);
+}
+
 //search city function
-userSearch.addEventListener("click", searchCity)
+userSearch.addEventListener("click", searchCity);
+clear.addEventListener("click", clearSearch);
+
+//clear search results
+function clearSearch () {
+  localStorage.clear();
+  location.reload();
+}
 
 function searchCity (event) {
    event.preventDefault()
    city.pop();
    var cityInput = input.value;
    city.push(cityInput);
-   console.log("city: " + city);
 
 //clear fields after search
 $(".clear").text("");
 
+//recall search items
+var searchDisplay = JSON.parse(localStorage.getItem("cityRecall")) || [];
+
 //saving and display city searches
-
-var searchHistory = input.value;
-var searchDisplay = []
-searchDisplay.push(searchHistory);
+searchDisplay.push(input.value);
 localStorage.setItem("cityRecall", JSON.stringify(searchDisplay));
-console.log("search history: " + searchDisplay);
 
-
+//fetch api
   var url = ("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + APIKey)
 
   fetch(url)
@@ -41,7 +55,7 @@ console.log("search history: " + searchDisplay);
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
+    // console.log(data);
   
 // primary display - using jquery to target index.html to eliminate the need to create multiple variables
 var listItem = document.createElement("div");
