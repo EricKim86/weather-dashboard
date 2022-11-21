@@ -54,7 +54,7 @@ li {
 .card-main {
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px #888888;
     background-image: url("../images/clouds.jpg");
     background-size: cover;
 }
@@ -81,7 +81,7 @@ li {
     border-radius: 5px;
     font-size: 14px;
     padding: 20px 0 20px 10px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 5px #888888;
 }
 
 .card-body p {
@@ -96,4 +96,8 @@ li {
 
 .btn-primary {
     width: 100%;   
+}
+
+.hide {
+    display: none;
 }

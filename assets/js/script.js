@@ -3,24 +3,37 @@ var userSearch = document.querySelector(".searchbar")
 var clear = document.querySelector(".clear-search")
 var APIKey = "a34f5a1c0ef356aeb1d2cd623581eea0";
 var searchResults = document.querySelector(".search-results")
+var bob = document.querySelector(".bob")
 
 //define city and place default city value of "philadelphia"
 var city = []
-if (city) {
-  city.length === 0;
-  city.push("philadelphia");
-} else {}
+// function defaultCity() {
+//   var loc = localStorage.getItem("cityRecall")
+// if (city.length === 0) {
+//   loc = JSON.parse(loc)
+//   city.push("philadelphia");
+//   let def = document.createElement("div")
+//   searchResults.appendChild(def)
+//   def.textContent = loc
+//   console.log(loc);
+//   } else {}
+// }
+// defaultCity();
 
-function weather() {
- 
 //populating saved searches for user
-for (var i = 0; i < localStorage.length; i++){
-  var element = document.createElement("li")
+function test() {
+for (var i = localStorage.length -1; i >= 0; i--){
+  var element = document.createElement("button")
   element.textContent = JSON.parse(localStorage.getItem(localStorage.key(i)))
-  searchResults.appendChild(element);
+  // element.setAttribute("cityRecall", localStorage[i])
+  searchResults.append(element);
+  console.log(element);
+}
 }
 
+function weather() {
 //search city function
+test();
 userSearch.addEventListener("click", searchCity);
 clear.addEventListener("click", clearSearch);
 
@@ -31,6 +44,7 @@ function clearSearch () {
 }
 
 function searchCity (event) {
+   bob.classList.remove("hide")
    event.preventDefault()
    city.pop();
    var cityInput = input.value;
@@ -43,6 +57,7 @@ $(".clear").text("");
 var searchDisplay = JSON.parse(localStorage.getItem("cityRecall")) || [];
 
 //saving and display city searches
+
 searchDisplay.push(input.value);
 localStorage.setItem("cityRecall", JSON.stringify(searchDisplay));
 input.value = "";
