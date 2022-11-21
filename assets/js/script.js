@@ -3,37 +3,11 @@ var userSearch = document.querySelector(".searchbar")
 var clear = document.querySelector(".clear-search")
 var APIKey = "a34f5a1c0ef356aeb1d2cd623581eea0";
 var searchResults = document.querySelector(".search-results")
-var bob = document.querySelector(".bob")
-
-//define city and place default city value of "philadelphia"
 var city = []
-// function defaultCity() {
-//   var loc = localStorage.getItem("cityRecall")
-// if (city.length === 0) {
-//   loc = JSON.parse(loc)
-//   city.push("philadelphia");
-//   let def = document.createElement("div")
-//   searchResults.appendChild(def)
-//   def.textContent = loc
-//   console.log(loc);
-//   } else {}
-// }
-// defaultCity();
-
-//populating saved searches for user
-function test() {
-for (var i = localStorage.length -1; i >= 0; i--){
-  var element = document.createElement("button")
-  element.textContent = JSON.parse(localStorage.getItem(localStorage.key(i)))
-  // element.setAttribute("cityRecall", localStorage[i])
-  searchResults.append(element);
-  console.log(element);
-}
-}
 
 function weather() {
+
 //search city function
-test();
 userSearch.addEventListener("click", searchCity);
 clear.addEventListener("click", clearSearch);
 
@@ -44,7 +18,6 @@ function clearSearch () {
 }
 
 function searchCity (event) {
-   bob.classList.remove("hide")
    event.preventDefault()
    city.pop();
    var cityInput = input.value;
@@ -156,23 +129,33 @@ document.querySelector(".box5D").appendChild(listItem);
 
 //date and time using jquery
 var date = dayjs();
-$(".main-date").text(date.format("(MM/D/YYYY)"));
+$(".main-date").text(date.format("(MM/D/YY)"));
 
 var date1 = dayjs().add(1,"days");
-$(".box1A").text(date1.format("MM/D/YYYY"));
+$(".box1A").text(date1.format("dddd (MM/D/YY)"));
 
 var date2 = dayjs().add(2,"days");
-$(".box2A").text(date2.format("MM/D/YYYY"));
+$(".box2A").text(date2.format("dddd (MM/D/YY)"));
 
 var date3 = dayjs().add(3,"days");
-$(".box3A").text(date3.format("MM/D/YYYY"));
+$(".box3A").text(date3.format("dddd (MM/D/YY)"));
 
 var date4 = dayjs().add(4,"days");
-$(".box4A").text(date4.format("MM/D/YYYY"));
+$(".box4A").text(date4.format("dddd (MM/D/YY)"));
 
 var date5 = dayjs().add(5,"days");
-$(".box5A").text(date5.format("MM/D/YYYY"));
+$(".box5A").text(date5.format("dddd (MM/D/YY)"));
 
+//populating saved searches for user
+for (var i = 0; i < city.length; i++) {
+  var cityGen = city[i];
+  var btnGen = document.createElement("button")
+  btnGen.classList.add("search-button")
+  btnGen.textContent = cityGen;
+  btnGen.setAttribute("data-index", i);
+  searchResults.append(btnGen)
+  console.log(cityGen);
+    }
   })
   }
 }
