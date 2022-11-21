@@ -2,14 +2,16 @@ var input = document.querySelector(".input")
 var userSearch = document.querySelector(".searchbar")
 var APIKey = "a34f5a1c0ef356aeb1d2cd623581eea0";
 
-function weather() {
+//define city and place default city value of "philadelphia"
 
-  var city = []
-  if (city) {
-    city.length === 0;
-    city.push("philadelphia");
-  } else {}
-  
+var city = []
+if (city) {
+  city.length === 0;
+  city.push("philadelphia");
+} else {}
+
+function weather() {
+ 
 //search city function
 userSearch.addEventListener("click", searchCity)
 
@@ -18,30 +20,19 @@ function searchCity (event) {
    city.pop();
    var cityInput = input.value;
    city.push(cityInput);
+   console.log("city: " + city);
 
 //clear fields after search
-$(".main-city").text("");
-$(".main-temp").text("");
-$(".main-wind").text("");
-$(".main-humidity").text("");
-$(".box1B").text("");
-$(".box1C").text("");
-$(".box1D").text("");
-$(".box2B").text("");
-$(".box2C").text("");
-$(".box1D").text("");
-$(".box3B").text("");
-$(".box3C").text("");
-$(".box3D").text("");
-$(".box4B").text("");
-$(".box4C").text("");
-$(".box4D").text("");
-$(".box5B").text("");
-$(".box5C").text("");
-$(".box5D").text("");
+$(".clear").text("");
 
 //saving and display city searches
-localStorage.setItem("cityRecall", JSON.stringify(cityInput));
+
+var searchHistory = input.value;
+var searchDisplay = []
+searchDisplay.push(searchHistory);
+localStorage.setItem("cityRecall", JSON.stringify(searchDisplay));
+console.log("search history: " + searchDisplay);
+
 
   var url = ("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + APIKey)
 
@@ -53,7 +44,6 @@ localStorage.setItem("cityRecall", JSON.stringify(cityInput));
     console.log(data);
   
 // primary display - using jquery to target index.html to eliminate the need to create multiple variables
-
 var listItem = document.createElement("div");
 listItem.textContent = data.city.name;
 document.querySelector(".main-city").appendChild(listItem);
