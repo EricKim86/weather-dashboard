@@ -15,7 +15,8 @@ Weather Dashboard: <br>
 
 ## Credits
 
-The cloud image was provided by unsplash.com, credit to Billy Huyng (https://unsplash.com/@billy_huy).
+The cloud image in primary weather display was provided by unsplash.com, credit to Billy Huyng (https://unsplash.com/@billy_huy).<br/>
+Background image was provided by unsplash.com, credit to Sam Schooler (https://unsplash.com/@sam).
 
 ## How to Contribute
 

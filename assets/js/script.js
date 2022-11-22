@@ -34,10 +34,19 @@ if (searchDisplay !== null) {
 }
 
 //saving and display city searches
-
 searchDisplay.push(input.value);
 localStorage.setItem("cityRecall", JSON.stringify(searchDisplay));
 input.value = "";
+
+//populating saved searches for user
+for (var i = 0; i < searchDisplay.length; i++) {
+  var cityGen = searchDisplay[i];
+  var btnGen = document.createElement("button")
+  btnGen.classList.add("search-button")
+  btnGen.textContent = cityGen;
+  btnGen.setAttribute("data-index", i);
+  searchResults.append(btnGen)
+    }
 
 //fetch api
   var url = ("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&appid=" + APIKey)
@@ -49,7 +58,7 @@ input.value = "";
   .then(function (data) {
     console.log(data);
   
-// primary display - using jquery to target index.html to eliminate the need to create multiple variables
+// primary display
 var listItem = document.createElement("div");
 listItem.textContent = data.city.name;
 document.querySelector(".main-city").appendChild(listItem);
@@ -150,15 +159,6 @@ document.querySelector(".box4A").textContent = date4.format("dddd (MM/D/YY)")
 var date5 = dayjs().add(5,"days");
 document.querySelector(".box5A").textContent = date5.format("dddd (MM/D/YY)")
 
-//populating saved searches for user
-for (var i = 0; i < searchDisplay.length; i++) {
-  var cityGen = searchDisplay[i];
-  var btnGen = document.createElement("button")
-  btnGen.classList.add("search-button")
-  btnGen.textContent = cityGen;
-  btnGen.setAttribute("data-index", i);
-  searchResults.append(btnGen)
-    }
   })
   }
 }
