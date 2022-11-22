@@ -28,6 +28,10 @@ $(".clear").text("");
 
 //recall search items
 var searchDisplay = JSON.parse(localStorage.getItem("cityRecall")) || [];
+if (searchDisplay !== null) {
+  cityReall = searchDisplay;
+  searchResults.textContent = "";
+}
 
 //saving and display city searches
 
@@ -127,34 +131,33 @@ var listItem = document.createElement("div");
 listItem.textContent = "Humidity: " + data.list[36].main.humidity + "%";
 document.querySelector(".box5D").appendChild(listItem);
 
-//date and time using jquery
+//date and time
 var date = dayjs();
-$(".main-date").text(date.format("(MM/D/YY)"));
+document.querySelector(".main-date").textContent = date.format("dddd (MM/D/YY)")
 
 var date1 = dayjs().add(1,"days");
-$(".box1A").text(date1.format("dddd (MM/D/YY)"));
+document.querySelector(".box1A").textContent = date1.format("dddd (MM/D/YY)")
 
 var date2 = dayjs().add(2,"days");
-$(".box2A").text(date2.format("dddd (MM/D/YY)"));
+document.querySelector(".box2A").textContent = date2.format("dddd (MM/D/YY)")
 
 var date3 = dayjs().add(3,"days");
-$(".box3A").text(date3.format("dddd (MM/D/YY)"));
+document.querySelector(".box3A").textContent = date3.format("dddd (MM/D/YY)")
 
 var date4 = dayjs().add(4,"days");
-$(".box4A").text(date4.format("dddd (MM/D/YY)"));
+document.querySelector(".box4A").textContent = date4.format("dddd (MM/D/YY)")
 
 var date5 = dayjs().add(5,"days");
-$(".box5A").text(date5.format("dddd (MM/D/YY)"));
+document.querySelector(".box5A").textContent = date5.format("dddd (MM/D/YY)")
 
 //populating saved searches for user
-for (var i = 0; i < city.length; i++) {
-  var cityGen = city[i];
+for (var i = 0; i < searchDisplay.length; i++) {
+  var cityGen = searchDisplay[i];
   var btnGen = document.createElement("button")
   btnGen.classList.add("search-button")
   btnGen.textContent = cityGen;
   btnGen.setAttribute("data-index", i);
   searchResults.append(btnGen)
-  console.log(cityGen);
     }
   })
   }
