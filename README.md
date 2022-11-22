@@ -10,8 +10,8 @@ This application can be accessed by opening the index.html file that is located 
 
 ## Usage
 
-Hourly Schedule: <br>
-<img src="https://github.com/EricKim86/work-day-schedule/blob/main/Assets/images/website.png?raw=true" width="600"/><br/>
+Weather Dashboard: <br>
+<img src="https://github.com/EricKim86/weather-dashboard/blob/main/assets/images/website.png?raw=true" height="500" width="1000"/><br/>
 
 ## Credits
 
