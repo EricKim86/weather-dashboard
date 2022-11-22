@@ -11,7 +11,7 @@ This application can be accessed by opening the index.html file that is located 
 ## Usage
 
 Weather Dashboard: <br>
-<img src="https://github.com/EricKim86/weather-dashboard/blob/main/assets/images/website.png?raw=true" height="500" width="1000"/><br/>
+<img src="https://github.com/EricKim86/weather-dashboard/blob/main/assets/images/website.png?raw=true" height="500" width="1100"/><br/>
 
 ## Credits
 
